@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin>
+ 
+	<!-- Adding a sub-menu to the Navigator view -->
+	<extension point="org.eclipse.ui.popupMenus"> 
+		<viewerContribution 
+			id="org.eclipse.ui.articles.action.contribution.popup.navigator"
+			targetID="org.eclipse.ui.views.ResourceNavigator"> 
+			<menu
+				id="org.eclipse.ui.articles.action.contribution.navigator.subMenu"
+				label="Jenkins Commands"
+				icon="icons/red_dot.gif"
+				path="additions">
+				<separator name="group1"/>
+			</menu>
+			<action
+				id="org.eclipse.ui.articles.action.contribution.navigator.action2" 
+				label="Create JOB"
+				icon="icons/red_dot.gif"
+				tooltip="Creates a Job with specified NAME and configures according to given xml file."
+				helpContextId="org.eclipse.ui.articles.action.contribution.navigator.action2" 
+				menubarPath="org.eclipse.ui.articles.action.contribution.navigator.subMenu/group1" 
+				class="org.eclipse.ui.articles.action.contribution.CreateJobActionDelegate"
+				enablesFor="1">
+			</action> 
+			<action
+				id="org.eclipse.ui.articles.action.contribution.navigator.action3" 
+				label="Delete Job"
+				icon="icons/red_dot.gif"
+				tooltip="Deletes the specified Job."
+				helpContextId="org.eclipse.ui.articles.action.contribution.navigator.action3" 
+				menubarPath="org.eclipse.ui.articles.action.contribution.navigator.subMenu/group1" 
+				class="org.eclipse.ui.articles.action.contribution.DeleteJobActionDelegate"
+				enablesFor="1">
+			</action>
+			<action
+				id="org.eclipse.ui.articles.action.contribution.navigator.action3" 
+				label="List Jobs"
+				icon="icons/red_dot.gif"
+				tooltip="Lists all the existing jobs."
+				helpContextId="org.eclipse.ui.articles.action.contribution.navigator.action3" 
+				menubarPath="org.eclipse.ui.articles.action.contribution.navigator.subMenu/group1" 
+				class="org.eclipse.ui.articles.action.contribution.ListJobActionDelegate"
+				enablesFor="1">
+			</action>
+			<action
+				id="org.eclipse.ui.articles.action.contribution.navigator.action3" 
+				label="Build Job"
+				icon="icons/red_dot.gif"
+				tooltip="Builds the specified Job."
+				helpContextId="org.eclipse.ui.articles.action.contribution.navigator.action3" 
+				menubarPath="org.eclipse.ui.articles.action.contribution.navigator.subMenu/group1" 
+				class="org.eclipse.ui.articles.action.contribution.BuildJobActionDelegate"
+				enablesFor="1">
+			</action>
+		</viewerContribution> 
+	</extension>
+ <extension
+       point="org.eclipse.ui.editors">
+ </extension> 
+
+
+</plugin>
+
+<plugin
+   name="Views Plugin"                            
+   id="org.eclipse.ui.articles.views"
+   version="1.0.0"
+   provider-name="OTI">
+
+<requires>
+        <import plugin="org.eclipse.core.boot"/>
+        <import plugin="org.eclipse.core.runtime"/>
+        <import plugin="org.eclipse.core.resources"/>
+        <import plugin="org.eclipse.swt"/>
+        <import plugin="org.eclipse.ui"/>
+</requires>
+
+<runtime>
+        <library name="views.jar"/>
+</runtime>
+
+</plugin>
